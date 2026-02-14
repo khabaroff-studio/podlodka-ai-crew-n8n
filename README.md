@@ -1,7 +1,9 @@
 # Персональный куратор контента с n8n
 
 **Демо-лекция для Podlodka Crew**
+
 **Дата:** 17 февраля 2026, вторник
+
 **Спикер:** Сергей Хабаров
 
 ## О демо
@@ -22,13 +24,6 @@
 
 ## Материалы
 
-- [Prompt NoCode Short](Prompt%20NoCode%20Short.md) — краткая версия промпта
-- [Prompt NoCode Long](Prompt%20NoCode%20Long.md) — расширенная версия
+- [Prompt NoCode Short](Prompt%20NoCode%20Short.md) — краткая версия промпта для автоматизации (техническое задание для workflow в n8n с описанием узлов, обработки ошибок, безопасности и рисков)
+- [Prompt NoCode Long](Prompt%20NoCode%20Long.md) — расширенная версия (полное техническое задание для workflow в n8n с описанием узлов, обработки ошибок, безопасности и рисков)
 - [Презентация](2026-02-17%20Podlodka%20Crew.pdf) — слайды лекции
-- [Cover](AI%20Crew%20Lecture%20Cover%20Khabarov.jpg) — обложка
-
-## Репозиторий
-
-Публичные материалы курсов Сергея Хабарова.
-
-**GitHub:** [khabaroff-studio/podlodka-ai-crew-n8n](https://github.com/khabaroff-studio/podlodka-ai-crew-n8n)
