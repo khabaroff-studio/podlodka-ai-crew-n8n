@@ -326,7 +326,7 @@
     },
     {
       "parameters": {
-        "content": "https://github.com/jdepoix/youtube-transcript-api\n\nhttps://apify.com/\napify_api_QIuaP7IWcgwGYDU6PAfhrpj9b0bf7Q45JUoH\n\nhttps://www.firecrawl.dev/",
+        "content": "https://github.com/jdepoix/youtube-transcript-api\n\nhttps://apify.com/\n\nhttps://www.firecrawl.dev/",
         "height": 224,
         "width": 320
       },
@@ -769,7 +769,7 @@
     "binaryMode": "separate",
     "availableInMCP": false
   },
-  "versionId": "527c0bd4-cbd2-4aed-a193-96fc36f06b55",
+  "versionId": "b3f840e7-8f10-4c8c-b2a5-651216d473cc",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2f5df2520c9742510e250c6d2c04977715d5e19ed0f5bb8b213412340397834f"
