@@ -1,5 +1,5 @@
 {
-  "name": "YouTube Channel Monitor with Telegram Notifications",
+  "name": "001 YouTube Channel Monitor with Telegram Notifications",
   "nodes": [
     {
       "parameters": {
@@ -11,13 +11,13 @@
           ]
         }
       },
-      "id": "6ac3a6e1-3ab3-45be-a9be-4ef8424e9191",
+      "id": "5b66e6ad-016c-478a-9f2b-57ccc5cacc83",
       "name": "Every Hour Check",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.3,
       "position": [
-        112,
-        304
+        144,
+        416
       ]
     },
     {
@@ -34,13 +34,13 @@
         },
         "options": {}
       },
-      "id": "69ca9574-d4d4-4c83-bcd9-19861d58fabd",
+      "id": "f161ee68-0e79-494c-9d71-9ebdb319df82",
       "name": "Workflow Configuration",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        352,
-        304
+        384,
+        416
       ]
     },
     {
@@ -48,26 +48,26 @@
         "url": "={{ $json.rss_url }}",
         "options": {}
       },
-      "id": "8725b71b-296f-4932-9f07-654a682212eb",
+      "id": "aabc50d7-0756-4d19-a324-b6991cec73ca",
       "name": "Read YouTube RSS",
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1.2,
       "position": [
-        560,
-        304
+        592,
+        416
       ]
     },
     {
       "parameters": {
         "maxItems": 20
       },
-      "id": "eb1f65b3-0bd0-480d-a888-d53f2d40b5a6",
+      "id": "e0e80f6d-f6e8-4d77-9e1e-83a449839b31",
       "name": "Take 10 Videos",
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        928,
-        304
+        960,
+        416
       ]
     },
     {
@@ -89,13 +89,13 @@
           ]
         }
       },
-      "id": "2d960796-998f-431d-999d-19936c2f3a21",
+      "id": "c5435e0d-349b-4ad2-a77f-b69e948b756e",
       "name": "Check If Video Exists",
       "type": "n8n-nodes-base.dataTable",
       "typeVersion": 1.1,
       "position": [
-        1152,
-        304
+        1184,
+        416
       ]
     },
     {
@@ -112,13 +112,13 @@
         },
         "options": {}
       },
-      "id": "c7beb68f-757b-4e3a-a0fd-9ff64e92a2ee",
+      "id": "515171b8-e32a-4b48-b0fe-99208128702c",
       "name": "Format Telegram Message",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1376,
-        304
+        1408,
+        416
       ]
     },
     {
@@ -130,13 +130,13 @@
           "parse_mode": "HTML"
         }
       },
-      "id": "c3af8f37-f2cf-4f7b-baba-2a18ae55486b",
+      "id": "8618e57c-863d-4c16-969f-d9aa589e96e7",
       "name": "Send to Telegram",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        1600,
-        304
+        1632,
+        416
       ],
       "webhookId": "ac5bd958-1e01-45e8-bbc7-832e4366a7dd",
       "credentials": {
@@ -172,13 +172,13 @@
         },
         "options": {}
       },
-      "id": "ed237177-c841-496d-970d-bde677c2e79f",
+      "id": "7ad7ffad-1dc3-49fb-9466-a5d12ef16d28",
       "name": "Prepare Video Data",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1824,
-        304
+        1856,
+        416
       ]
     },
     {
@@ -234,104 +234,14 @@
         },
         "options": {}
       },
-      "id": "8c7a4051-de79-415c-8b6e-2245e0f5768c",
+      "id": "aaed3f7a-a219-488c-bbda-825b3cf532af",
       "name": "Store Sent Video",
       "type": "n8n-nodes-base.dataTable",
       "typeVersion": 1.1,
       "position": [
-        2048,
-        304
+        2080,
+        416
       ]
-    },
-    {
-      "parameters": {
-        "updates": [
-          "message"
-        ],
-        "additionalFields": {}
-      },
-      "type": "n8n-nodes-base.telegramTrigger",
-      "typeVersion": 1.2,
-      "position": [
-        448,
-        -16
-      ],
-      "id": "6d001550-59fd-4fa8-996a-70d07c388f13",
-      "name": "Telegram Trigger",
-      "webhookId": "5b55b886-417c-4621-a805-b8f5b571a23b",
-      "credentials": {
-        "telegramApi": {
-          "id": "ckHex4y2gPZpPxQE",
-          "name": "@content_tools_bot"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "dataTableId": {
-          "__rl": true,
-          "value": "qqZWpBJK4P80nBxX",
-          "mode": "list",
-          "cachedResultName": "subscribers",
-          "cachedResultUrl": "/projects/Ficpx7YIHjuBLAqy/datatables/qqZWpBJK4P80nBxX"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "telegram_id": "={{ $json.message.from.id }}"
-          },
-          "matchingColumns": [
-            "telegram_id"
-          ],
-          "schema": [
-            {
-              "id": "telegram_id",
-              "displayName": "telegram_id",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "number",
-              "readOnly": false,
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.dataTable",
-      "typeVersion": 1.1,
-      "position": [
-        656,
-        -16
-      ],
-      "id": "3eed094c-e79e-4da4-aadf-9abb83589f31",
-      "name": "Insert row"
-    },
-    {
-      "parameters": {
-        "chatId": "={{ $('Telegram Trigger').item.json.message.from.id }}",
-        "text": "Привет! Я буду присылать тебе новые видео",
-        "additionalFields": {
-          "appendAttribution": false
-        }
-      },
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.2,
-      "position": [
-        864,
-        -16
-      ],
-      "id": "e44cf1a3-22fb-4442-b687-2bb6e8af2220",
-      "name": "Send a text message",
-      "webhookId": "bcd0dd78-1273-4db3-b0aa-0cae5edcdad3",
-      "credentials": {
-        "telegramApi": {
-          "id": "ckHex4y2gPZpPxQE",
-          "name": "@content_tools_bot"
-        }
-      }
     },
     {
       "parameters": {
@@ -342,10 +252,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -32,
-        -112
+        0,
+        0
       ],
-      "id": "3883eab9-78e8-456f-bd43-89450dc22f2c",
+      "id": "ba8aa13b-372f-486f-a16c-1c32918f7dab",
       "name": "Sticky Note"
     },
     {
@@ -375,10 +285,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        752,
-        432
+        784,
+        544
       ],
-      "id": "f136980e-5360-4271-818a-c3050738c4f8",
+      "id": "c522b805-a39d-43fc-a964-e1d02faec130",
       "name": "If"
     }
   ],
@@ -472,28 +382,6 @@
         ]
       ]
     },
-    "Telegram Trigger": {
-      "main": [
-        [
-          {
-            "node": "Insert row",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Insert row": {
-      "main": [
-        [
-          {
-            "node": "Send a text message",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "If": {
       "main": [
         [
@@ -512,11 +400,10 @@
     "binaryMode": "separate",
     "availableInMCP": false
   },
-  "versionId": "865ba29b-a8c8-42a9-90ba-1a1bf4c8eec6",
+  "versionId": "46542716-c1bc-4f44-9a26-45af6ba5587d",
   "meta": {
-    "templateCredsSetupCompleted": true,
     "instanceId": "2f5df2520c9742510e250c6d2c04977715d5e19ed0f5bb8b213412340397834f"
   },
-  "id": "Ist9LnsV9obERcw4a0myr",
+  "id": "9PbNb1r7sde9ri45WXtgZ",
   "tags": []
 }

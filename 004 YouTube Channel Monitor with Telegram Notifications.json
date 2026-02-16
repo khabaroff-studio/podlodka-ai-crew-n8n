@@ -1,5 +1,5 @@
 {
-  "name": "002 YouTube Channel Monitor with Telegram Notifications",
+  "name": "004 YouTube Channel Monitor with Telegram Notifications",
   "nodes": [
     {
       "parameters": {
@@ -11,7 +11,7 @@
           ]
         }
       },
-      "id": "20d11d9d-e49d-4961-acb3-76d15fbfe3d3",
+      "id": "4ead6ed4-f65a-4b58-bce2-1a3b18110f54",
       "name": "Every Hour Check",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.3,
@@ -34,7 +34,7 @@
         },
         "options": {}
       },
-      "id": "b1007bc7-39d3-4902-ad54-5b86c30f0ef6",
+      "id": "01cb2982-8c8d-41d7-be11-68abc5235280",
       "name": "Workflow Configuration",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
@@ -48,7 +48,7 @@
         "url": "={{ $json.rss_url }}",
         "options": {}
       },
-      "id": "d29cc8d6-a741-410c-b789-3fd922d0750e",
+      "id": "b2eabb84-17d3-455c-b907-f148b4497eb8",
       "name": "Read YouTube RSS",
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1.2,
@@ -61,7 +61,7 @@
       "parameters": {
         "maxItems": 20
       },
-      "id": "8de569da-9a36-4b22-ba13-2a752165369f",
+      "id": "b343cc59-d496-42e5-a124-9ae48f1c009f",
       "name": "Take 10 Videos",
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
@@ -89,7 +89,7 @@
           ]
         }
       },
-      "id": "b572a36f-58f4-4b0f-a68f-847324140af0",
+      "id": "6719c6c8-4b6b-470f-bb15-9c66072d7d99",
       "name": "Check If Video Exists",
       "type": "n8n-nodes-base.dataTable",
       "typeVersion": 1.1,
@@ -101,13 +101,13 @@
     {
       "parameters": {
         "chatId": "57906326",
-        "text": "={{ $('Loop Over Items').item.json.title }}\n\n{{ $('Loop Over Items').item.json.link }}",
+        "text": "={{ $('Loop Over Items').item.json.title }}\n\n{{ $json.output }}\n\n{{ $('Loop Over Items').item.json.link }}",
         "additionalFields": {
           "appendAttribution": false,
           "parse_mode": "HTML"
         }
       },
-      "id": "8cc0f45f-106b-42d1-97fa-4edc97155474",
+      "id": "b8b454f8-6693-4615-a998-a7f637be0ffe",
       "name": "Send to Telegram",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
@@ -115,7 +115,7 @@
         2864,
         -128
       ],
-      "webhookId": "00a52171-1940-4164-a1b0-21d815170761",
+      "webhookId": "7d3f68b1-b8b4-4650-b18e-b43443ef05dc",
       "credentials": {
         "telegramApi": {
           "id": "ckHex4y2gPZpPxQE",
@@ -177,7 +177,7 @@
         },
         "options": {}
       },
-      "id": "6a0e3580-898e-4f18-8597-3c94d3280470",
+      "id": "dba9f62b-c73e-4cfc-a0a6-438f611748e1",
       "name": "Store Sent Video",
       "type": "n8n-nodes-base.dataTable",
       "typeVersion": 1.1,
@@ -198,7 +198,7 @@
         -32,
         -112
       ],
-      "id": "b1e4c190-4815-488e-9265-9d70fadd13eb",
+      "id": "42299845-c93e-4672-9cfe-8c3102d17d7c",
       "name": "Sticky Note"
     },
     {
@@ -231,7 +231,7 @@
         752,
         432
       ],
-      "id": "a3c63077-2d1f-40b3-99ec-3dd084305d82",
+      "id": "0dd580a8-7ed7-42d5-b6e4-c14bd916314d",
       "name": "If"
     },
     {
@@ -246,7 +246,7 @@
         1440,
         -240
       ],
-      "id": "dc06a552-0b95-4b7d-8f9d-8dddeb7e67c6",
+      "id": "56ae4f1f-15a3-4696-8e78-17bd3178ab85",
       "name": "Sticky Note1"
     },
     {
@@ -261,10 +261,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        1968,
-        80
+        1904,
+        16
       ],
-      "id": "a4c1c009-0e1a-4d93-a436-dfd894e5bf34",
+      "id": "a4ee1677-5044-4a42-9ce1-b77deada1def",
       "name": "AI Agent"
     },
     {
@@ -275,10 +275,10 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1952,
-        320
+        1920,
+        416
       ],
-      "id": "b9911c58-b2e2-4f7a-887a-5ac46e63b63a",
+      "id": "9982374d-0eb9-4b36-afa7-3103ae91da0d",
       "name": "OpenRouter Chat Model",
       "credentials": {
         "openRouterApi": {
@@ -294,11 +294,24 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        2176,
-        336
+        2096,
+        416
       ],
-      "id": "336066db-1fcc-4df3-b876-b6ae47900d64",
+      "id": "7bb263ba-a85c-40b9-8928-229370f4c4d2",
       "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1440,
+        144
+      ],
+      "id": "9c687033-f756-4fe1-9ad5-399f6e978801",
+      "name": "Loop Over Items"
     },
     {
       "parameters": {
@@ -320,10 +333,10 @@
       "type": "@mendable/n8n-nodes-firecrawl.firecrawl",
       "typeVersion": 1,
       "position": [
-        1584,
-        208
+        1728,
+        160
       ],
-      "id": "2379590e-9ab6-443d-8073-865e0a900365",
+      "id": "064fe969-4127-4e9e-b4d6-6f093d750dd3",
       "name": "Scrape a URL and get content as markdown or other formats",
       "credentials": {
         "firecrawlApi": {
@@ -331,6 +344,134 @@
           "name": "Firecrawl account"
         }
       }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "6a052ffd-060c-4c53-af6e-a842a040533c",
+              "leftValue": "={{ $json.output.score }}",
+              "rightValue": 77,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2240,
+        -112
+      ],
+      "id": "4b531486-dc3d-43cc-864d-179013a2f30a",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Scrape a URL and get content as markdown or other formats').item.json.data.markdown }}",
+        "options": {
+          "systemMessage": "Сделай списком короткое саммари на 4 пункта о чем это видео. Только список и ничего лишнего."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        2528,
+        -160
+      ],
+      "id": "37ae1382-0846-4c30-bff2-e618f6483bcf",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "value": "oohzytBYLRYrzqQh",
+          "mode": "list",
+          "cachedResultName": "videos",
+          "cachedResultUrl": "/projects/Ficpx7YIHjuBLAqy/datatables/oohzytBYLRYrzqQh"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "video_id": "={{ $('Take 10 Videos').item.json.id }}",
+            "title": "={{ $('Take 10 Videos').item.json.title }}",
+            "sent_at": "={{ $now.toISO() }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "video_id",
+              "displayName": "video_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "sent_at",
+              "displayName": "sent_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "1274a6b1-5f3a-4860-8011-672689cd3884",
+      "name": "Store Sent Video1",
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        2640,
+        656
+      ]
+    },
+    {
+      "parameters": {
+        "content": "https://rss.app/\n\nhttps://r.jina.ai/http://t.me/s/alliknowisthatidontknownothing\n \nhttps://rsshub.app/telegram/channel/alliknowisthatidontknownothing\n\nhttps://tgstat.ru/api/callback",
+        "height": 176,
+        "width": 560
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -400,
+        656
+      ],
+      "id": "280f3198-726e-49f7-a780-dd1bef651b5e",
+      "name": "Sticky Note2"
     }
   ],
   "pinData": {},
@@ -383,7 +524,7 @@
       "main": [
         [
           {
-            "node": "Scrape a URL and get content as markdown or other formats",
+            "node": "Loop Over Items",
             "type": "main",
             "index": 0
           }
@@ -419,6 +560,11 @@
             "node": "AI Agent",
             "type": "ai_languageModel",
             "index": 0
+          },
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
           }
         ]
       ]
@@ -438,7 +584,19 @@
       "main": [
         [
           {
-            "node": "Send to Telegram",
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Scrape a URL and get content as markdown or other formats",
             "type": "main",
             "index": 0
           }
@@ -447,7 +605,13 @@
     },
     "Store Sent Video": {
       "main": [
-        []
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Scrape a URL and get content as markdown or other formats": {
@@ -455,6 +619,46 @@
         [
           {
             "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Store Sent Video1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Send to Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Store Sent Video1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
             "type": "main",
             "index": 0
           }
@@ -468,11 +672,11 @@
     "binaryMode": "separate",
     "availableInMCP": false
   },
-  "versionId": "5ca39278-22bc-4685-8b86-1334c57ce56e",
+  "versionId": "4a119fe9-60d8-49d5-8039-26cf00cb5322",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2f5df2520c9742510e250c6d2c04977715d5e19ed0f5bb8b213412340397834f"
   },
-  "id": "gc7Scne0vbpss0yi",
+  "id": "qUXRi5pnlkuWZ6aC",
   "tags": []
 }
